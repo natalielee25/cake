@@ -39,3 +39,12 @@ export function isComplete() {
   const s = getState();
   return s.shape && s.flavor && s.cream && s.tiers;
 }
+
+export function resetState() {
+  state.shape = null;
+  state.flavor = null;
+  state.cream = null;
+  state.tiers = null;
+  state.toppings = [];
+  listeners.forEach((fn) => fn(getState()));
+}
