@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday 🎂</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;600;700;800&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet" />
+  <script type="module" src="/src/main.js"></script>
+</head>
+<body>
+
+  <!-- ========== PAGE 1: HOME ========== -->
+  <section id="page-home" class="page page-home">
+    <div class="home-bg-gradient"></div>
+    <div class="home-content">
+      <div class="home-top">
+        <p class="home-tagline">for my beloved dad 💕</p>
+        <h1 class="home-title">Happy<br/>Birthday!</h1>
+        <p class="home-subtitle">I'll make you a birthday cake virtually.</p>
+      </div>
+      <div class="home-bottom">
+        <button id="start-btn" class="start-btn">
+          Let's go choose the ingredients 🎂
+        </button>
+      </div>
+    </div>
+    <div class="floating-emojis" aria-hidden="true">
+      <span>🎂</span><span>🎉</span><span>🌸</span><span>✨</span>
+      <span>🎈</span><span>💕</span><span>🍓</span><span>🌟</span>
+    </div>
+  </section>
+
+  <!-- ========== PAGE 2: HOW TO PAY ========== -->
+  <section id="page-how" class="page page-how">
+    <div class="how-content">
+      <p class="page-eyebrow">Your choices ✨</p>
+      <h2 class="page-title">How to build<br/>your cake</h2>
+      <p class="page-desc">Pick each ingredient one by one<br/>and I'll build it live just for you.</p>
+      <div class="how-cards">
+        <div class="how-card" style="--delay:0s">
+          <span class="how-icon">💝</span>
+          <div>
+            <strong>Shape</strong>
+            <span>Round or Heart</span>
+          </div>
+        </div>
+        <div class="how-card" style="--delay:.08s">
+          <span class="how-icon">🍰</span>
+          <div>
+            <strong>Sponge Flavour</strong>
+            <span>Vanilla · Chocolate · Strawberry</span>
+          </div>
+        </div>
+        <div class="how-card" style="--delay:.16s">
+          <span class="how-icon">🍦</span>
+          <div>
+            <strong>Cream</strong>
+            <span>Whipped · Buttercream · Ganache · Cream Cheese</span>
+          </div>
+        </div>
+        <div class="how-card" style="--delay:.24s">
+          <span class="how-icon">🎂</span>
+          <div>
+            <strong>Tiers</strong>
+            <span>1, 2 or 3 tiers</span>
+          </div>
+        </div>
+        <div class="how-card" style="--delay:.32s">
+          <span class="how-icon">🍓</span>
+          <div>
+            <strong>Toppings</strong>
+            <span>Strawberry · Choc-Strawberry · Icing · Macaron</span>
+          </div>
+        </div>
+      </div>
+      <button id="how-next-btn" class="primary-btn">Start Customizing →</button>
+    </div>
+  </section>
+
+  <!-- ========== PAGE 3: CUSTOMIZE ========== -->
+  <section id="page-customize" class="page page-customize">
+    <div class="customize-layout">
+      <!-- Left: options -->
+      <div class="customize-left">
+        <h2 class="page-title small">Build Your Cake 🎂</h2>
+        <div id="options-panel" class="options-panel"></div>
+      </div>
+      <!-- Right: live preview -->
+      <div class="customize-right">
+        <h3 class="preview-title">Live Preview ✨</h3>
+        <div id="preview-panel" class="preview-panel"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PAGE 4: ENVELOPE ========== -->
+  <section id="page-envelope" class="page page-envelope">
+
+    <!-- Envelope state -->
+    <div id="envelope-section" class="envelope-section">
+      <p class="envelope-heading">Your cake is complete! 🎉</p>
+      <p class="envelope-sub">There's a little surprise waiting for you...</p>
+      <button id="envelope-btn" class="envelope-btn" aria-label="Open envelope">
+        <div class="env-body">
+          <div class="env-flap"></div>
+          <div class="env-pocket"></div>
+          <span class="env-heart">💌</span>
+        </div>
+      </button>
+    </div>
+
+    <!-- Letter state (hidden initially) -->
+    <div id="letter-section" class="letter-section" style="display:none;">
+      <div class="letter-card">
+        <div class="letter-inner">
+          <p class="letter-to">Dear Dad,</p>
+          <p class="letter-body">
+            Happy Birthday! 🎂🎉<br/><br/>
+            I made you this little virtual cake with all the love in my heart.
+            You mean the world to me, and I hope this birthday brings you
+            as much joy as you bring to everyone around you every single day.<br/><br/>
+            Wishing you health, happiness, and all the cake you can eat! 🍰<br/><br/>
+            With all my love always,<br/>
+            <em>Natalie 💕</em>
+          </p>
+          <div class="letter-deco">🌸 ✨ 🎂 ✨ 🌸</div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+</body>
+</html>
