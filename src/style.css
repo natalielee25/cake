@@ -476,13 +476,22 @@ img    { display: block; max-width: 100%; }
   gap: 0;
 }
 
-/* Wrapper that holds toppings + cake-stack so toppings escape the clip-path */
-.cake-with-toppings {
+/* Column that vertically stacks toppings row + cake stack */
+.cake-column {
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
-  padding-top: 52px; /* space reserved for toppings above the cake */
+}
+
+/* Row of topping images sitting above the cake tiers */
+.cake-toppings-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 4px;
+  min-height: 100px;
+  min-width: 220px;
 }
 
 /* Cake stack — all tiers stacked */
@@ -494,16 +503,7 @@ img    { display: block; max-width: 100%; }
   filter: drop-shadow(0 20px 40px rgba(160,40,80,0.28));
 }
 
-/* Heart silhouette clip-path */
-.cake-stack.heart-shaped {
-  clip-path: polygon(
-    0% 100%, 0% 52%, 4% 30%,
-    20% 8%,  50% 22%,
-    80% 8%, 96% 30%, 100% 52%, 100% 100%
-  );
-}
-
-/* One tier wrapper — keeps cream overflow visible */
+/* One tier wrapper */
 .cake-tier {
   display: flex;
   flex-direction: column;
@@ -512,56 +512,31 @@ img    { display: block; max-width: 100%; }
   transition: all 0.45s cubic-bezier(0.34, 1.2, 0.64, 1);
 }
 
-/* Cream wrap — slightly wider than sponge for drip illusion */
-.tier-cream-wrap {
+/* Frosting disc — wider than sponge, fully elliptical */
+.tier-frosting {
   flex-shrink: 0;
-  overflow: visible;
-}
-
-/* Cream dome */
-.tier-cream {
-  width: 100%;
-  border-radius: 50% 50% 0 0 / 90% 90% 0 0;
   transition: background 0.4s ease;
 }
 
-/* Sponge face */
+/* Sponge face — barrel shape set inline via border-radius */
 .tier-sponge {
   width: 100%;
   flex-shrink: 0;
-  border-radius: 0;
   transition: background 0.4s ease;
 }
 
-/* Bottom depth strip — gives the 3-D side face of the tier */
-.tier-depth {
-  width: 100%;
+/* Bottom cap to seal the last sponge's rounded base */
+.cake-base-cap {
   flex-shrink: 0;
   transition: background 0.4s ease;
 }
 
-/* Toppings sit in the reserved space above the cake, outside the clip-path */
-.cake-toppings-layer {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 2px;
-  justify-content: center;
-  align-items: flex-end;
-  height: 52px;
-  z-index: 10;
-  pointer-events: none;
-  min-width: 200px;
-}
-
 .topping-img {
-  width: 58px;
-  height: 58px;
+  width: 92px;
+  height: 92px;
   object-fit: contain;
   mix-blend-mode: multiply;
-  filter: drop-shadow(0 3px 6px rgba(0,0,0,0.18));
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.18));
   transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
@@ -632,19 +607,6 @@ img    { display: block; max-width: 100%; }
   height: 4px;
   background: rgba(255,255,255,0.7);
   border-radius: 50%;
-}
-
-/* Shape badge pill */
-.shape-badge {
-  margin-top: 18px;
-  font-size: 1rem;
-  font-weight: 800;
-  color: #C0185A;
-  background: rgba(255,255,255,0.9);
-  padding: 7px 20px;
-  border-radius: 40px;
-  box-shadow: 0 3px 10px rgba(192,24,90,0.18);
-  letter-spacing: 0.02em;
 }
 
 /* Empty state placeholder */

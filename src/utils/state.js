@@ -1,5 +1,5 @@
 const state = {
-  shape: null,
+  shape: 'round',
   flavor: null,
   cream: null,
   tiers: null,
@@ -37,11 +37,11 @@ export function subscribe(fn) {
 
 export function isComplete() {
   const s = getState();
-  return s.shape && s.flavor && s.cream && s.tiers;
+  return s.flavor && s.cream && s.tiers;
 }
 
 export function resetState() {
-  state.shape = null;
+  state.shape = 'round';
   state.flavor = null;
   state.cream = null;
   state.tiers = null;

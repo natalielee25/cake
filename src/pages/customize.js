@@ -16,10 +16,6 @@ const CREAM_SWATCHES = {
 };
 
 const OPTIONS = {
-  shape: [
-    { value: 'round', label: 'Round',  emoji: '⭕' },
-    { value: 'heart', label: 'Heart',  emoji: '❤️' },
-  ],
   flavor: [
     { value: 'vanilla',    label: 'Vanilla',    color: FLAVOR_SWATCHES.vanilla },
     { value: 'chocolate',  label: 'Chocolate',  color: FLAVOR_SWATCHES.chocolate },
@@ -46,10 +42,6 @@ const TOPPINGS = [
 ];
 
 function getTileInner(key, item) {
-  if (key === 'shape') {
-    return `<span class="tile-big-icon">${item.emoji}</span>
-            <span class="tile-label">${item.label}</span>`;
-  }
   if (key === 'flavor') {
     const border = item.value === 'chocolate' ? 'border:2px solid rgba(255,255,255,0.3)' : 'border:2px solid rgba(180,100,80,0.15)';
     return `<span class="tile-swatch" style="background:${item.color};${border}"></span>
@@ -78,7 +70,7 @@ function getTileInner(key, item) {
 
 function buildOptionGroup(key, items, isMulti = false) {
   const LABELS = {
-    shape: '✦ Shape', flavor: '✦ Sponge Flavour',
+    flavor: '✦ Sponge Flavour',
     cream: '✦ Cream', tiers: '✦ Tiers', toppings: '✦ Toppings',
   };
   const group = document.createElement('div');
