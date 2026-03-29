@@ -31,6 +31,7 @@ function buildTier(c, f, cr) {
   const halfW = Math.round(c.w / 2);
   const fw    = c.w + 14; // frosting disc overhangs 7px per side
   const fml   = -Math.round((fw - c.w) / 2); // negative margin to centre overflow
+  const spongeUp = Math.round(c.ch * 0.42); // sponge tucks up into frosting
 
   return `
   <div class="cake-tier" style="width:${c.w}px">
@@ -40,13 +41,18 @@ function buildTier(c, f, cr) {
       margin:0 ${fml}px;
       background: radial-gradient(ellipse 60% 55% at 40% 30%, ${cr.hi} 0%, ${cr.base} 55%, ${cr.edge} 100%);
       border-radius:50%;
+      position:relative;
+      z-index:2;
     "></div>
     <div class="tier-sponge" style="
       height:${c.sh}px;
       background: linear-gradient(175deg, ${f.light} 0%, ${f.mid} 45%, ${f.dark} 82%, ${f.shadow} 100%);
       border-radius:${halfW}px / 18px;
       box-shadow: inset -12px 0 24px rgba(0,0,0,0.14), inset 10px 0 18px rgba(255,255,255,0.07);
-      margin-bottom:-16px;
+      margin-top:-${spongeUp}px;
+      margin-bottom:-18px;
+      position:relative;
+      z-index:1;
     "></div>
   </div>`;
 }
@@ -69,11 +75,13 @@ function buildCake(s) {
     margin-top:16px;
   "></div>`;
 
-  // Toppings (outside clip so they always show)
+  // Toppings — each clipped into a circle so the lavender bg is hidden
   const toppingHtml = (s.toppings && s.toppings.length)
     ? `<div class="cake-toppings-row">
         ${s.toppings.map(t =>
-          `<img src="${TOPPING_IMGS[t]}" class="topping-img" alt="${t}">`
+          `<div class="topping-bubble">
+            <img src="${TOPPING_IMGS[t]}" class="topping-img" alt="${t}">
+           </div>`
         ).join('')}
        </div>`
     : `<div class="cake-toppings-row"></div>`;
